@@ -1,0 +1,28 @@
+<idea-plugin version="2">
+  <id>com.rudeshko.csscomb</id>
+  <name>CSSComb</name>
+  <version>1.0</version>
+  <vendor email="anton@rudeshko.com" url="http://www.rudeshko.com">Anton Rudeshko</vendor>
+
+  <description><![CDATA[
+      The greatest tool for sorting CSS properties in specific order.
+      Credits to <a href="http://csscomb.com/">CSSComb.com</a>.
+      ]]></description>
+
+  <change-notes><![CDATA[
+      19.01.2013 - Initial version
+      ]]>
+  </change-notes>
+
+  <idea-version since-build="107.105"/>
+
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.css</depends>
+
+  <actions>
+    <action id="applyCSSComb" class="com.rudeshko.csscomb.CssCombAction" text="Apply CSSComb"
+            description="Clean up your CSS with CSSComb">
+      <add-to-group group-id="ToolsMenu" anchor="last"/>
+    </action>
+  </actions>
+</idea-plugin>
