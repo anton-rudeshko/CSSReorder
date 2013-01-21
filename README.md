@@ -1,7 +1,7 @@
-CSSComb
-=======
+# CSSComb
 
 Implementing CSSComb as IntelliJ IDEA plugin.
 
-The Greatest tool for sorting CSS properties in specific order.
-Credits to http://csscomb.com/ and @miripiruni
+Sorting CSS properties in predefined order.
+
+Credits to http://csscomb.com/ and [@miripiruni](https://github.com/miripiruni)
