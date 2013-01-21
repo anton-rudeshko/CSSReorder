@@ -1,6 +1,8 @@
 package com.rudeshko.csscomb;
 
 import com.intellij.openapi.command.WriteCommandAction;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.css.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -8,47 +10,40 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by: Tesla
- * Date: 19.01.13 at 21:28
- */
-public class CSSCombVisitor extends CssElementVisitor {
+public class CSSCombVisitor extends PsiElementVisitor {
 
     @Override
-    public void visitCssStylesheet(CssStylesheet stylesheet) {
-        CssRuleset[] ruleSets = stylesheet.getRulesets();
-        for (CssRuleset ruleSet : ruleSets) {
-            visitCssRuleset(ruleSet);
+    public void visitElement(PsiElement element) {
+        if (element instanceof CssStylesheet) {
+            final CssStylesheet cssStylesheet = (CssStylesheet) element;
+            new WriteCommandAction.Simple(cssStylesheet.getProject(), cssStylesheet.getContainingFile()) {
+                @Override
+                protected void run() throws Throwable {
+                    CssRuleset[] ruleSets = cssStylesheet.getRulesets();
+                    for (CssRuleset ruleSet : ruleSets) {
+                        CssBlock block = ruleSet.getBlock();
+                        if (block != null) {
+                            sortBlock(block);
+                        }
+                    }
+                }
+            }.execute();
         }
     }
 
-    @Override
-    public void visitCssRuleset(CssRuleset ruleSet) {
-        CssBlock block = ruleSet.getBlock();
-        if (block != null) {
-            visitCssBlock(block);
-        }
-    }
-
-    @Override
-    public void visitCssBlock(@NotNull final CssBlock block) {
-        final List<FutureDeclaration> futureDeclarations = new ArrayList<FutureDeclaration>();
+    private void sortBlock(CssBlock block) {
+        List<FutureDeclaration> futureDeclarations = new ArrayList<FutureDeclaration>();
         for (CssDeclaration declaration : block.getDeclarations()) {
             futureDeclarations.add(new FutureDeclaration(declaration));
         }
 
         Collections.sort(futureDeclarations, CssOrder.DEFAULT_COMPARATOR);
 
-        new WriteCommandAction.Simple(block.getProject(), block.getContainingFile()) {
-            @Override
-            protected void run() throws Throwable {
-                CssDeclaration lastDeclaration = null;
-                for (FutureDeclaration futureDeclaration : futureDeclarations) {
-                    block.removeDeclaration(futureDeclaration.getDeclaration());
-                    lastDeclaration = block.addDeclaration(futureDeclaration.getName(), futureDeclaration.getValue(), lastDeclaration);
-                }
-            }
-        }.execute();
+        CssDeclaration lastDeclaration = null;
+        for (FutureDeclaration futureDeclaration : futureDeclarations) {
+            block.removeDeclaration(futureDeclaration.getDeclaration());
+            lastDeclaration = block.addDeclaration(futureDeclaration.getName(), futureDeclaration.getValue(), lastDeclaration);
+        }
     }
 
     public class FutureDeclaration {
