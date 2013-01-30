@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.rudeshko.csscomb</id>
   <name>CSSComb</name>
-  <version>0.1</version>
+  <version>0.2</version>
   <vendor email="anton@rudeshko.com" url="http://www.rudeshko.com">Anton Rudeshko</vendor>
 
   <description><![CDATA[
@@ -16,6 +16,10 @@
       ]]></description>
 
   <change-notes><![CDATA[
+      30.01.2013 - Changed reordering algorithm.
+      Closed <a href="https://github.com/anton-rudeshko/CSSComb/issues/3">#3</a> and
+      <a href="https://github.com/anton-rudeshko/CSSComb/issues/6">#6</a>.
+      <br>
       19.01.2013 - Initial version (alpha)
       ]]>
   </change-notes>
