@@ -1,5 +1,7 @@
 package com.rudeshko.csscomb;
 
+import com.intellij.psi.css.CssDeclaration;
+
 import java.util.Comparator;
 import java.util.List;
 
@@ -383,11 +385,11 @@ public class CssOrder {
             "orientation"
     );
 
-    public static final Comparator<? super CSSCombVisitor.FutureDeclaration> DEFAULT_COMPARATOR = new Comparator<CSSCombVisitor.FutureDeclaration>() {
+    public static final Comparator<? super CssDeclaration> DEFAULT_COMPARATOR = new Comparator<CssDeclaration>() {
         @Override
-        public int compare(CSSCombVisitor.FutureDeclaration o1, CSSCombVisitor.FutureDeclaration o2) {
-            int firstIndex = DEFAULT_ORDER.indexOf(o1.getName());
-            int secondIndex = DEFAULT_ORDER.indexOf(o2.getName());
+        public int compare(CssDeclaration o1, CssDeclaration o2) {
+            int firstIndex = DEFAULT_ORDER.indexOf(o1.getPropertyName());
+            int secondIndex = DEFAULT_ORDER.indexOf(o2.getPropertyName());
             return firstIndex == secondIndex ? 0 : firstIndex > secondIndex ? 1 : -1;
         }
     };

@@ -3,12 +3,12 @@ package com.rudeshko.csscomb;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
-import com.intellij.psi.css.*;
-import org.jetbrains.annotations.NotNull;
+import com.intellij.psi.css.CssBlock;
+import com.intellij.psi.css.CssDeclaration;
+import com.intellij.psi.css.CssRuleset;
+import com.intellij.psi.css.CssStylesheet;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 
 public class CSSCombVisitor extends PsiElementVisitor {
 
@@ -32,42 +32,17 @@ public class CSSCombVisitor extends PsiElementVisitor {
     }
 
     private void sortBlock(CssBlock block) {
-        List<FutureDeclaration> futureDeclarations = new ArrayList<FutureDeclaration>();
-        for (CssDeclaration declaration : block.getDeclarations()) {
-            futureDeclarations.add(new FutureDeclaration(declaration));
+        CssDeclaration[] sortedDeclarations = block.getDeclarations();
+        Arrays.sort(sortedDeclarations, CssOrder.DEFAULT_COMPARATOR);
+
+        CssDeclaration[] declarations = block.getDeclarations();
+        for (int i = 0; i < declarations.length; i++) {
+            block.addAfter(sortedDeclarations[i], declarations[i]);
         }
 
-        Collections.sort(futureDeclarations, CssOrder.DEFAULT_COMPARATOR);
-
-        CssDeclaration lastDeclaration = null;
-        for (FutureDeclaration futureDeclaration : futureDeclarations) {
-            block.removeDeclaration(futureDeclaration.getDeclaration());
-            lastDeclaration = block.addDeclaration(futureDeclaration.getName(), futureDeclaration.getValue(), lastDeclaration);
-        }
-    }
-
-    public class FutureDeclaration {
-        private final String name;
-        private final String value;
-        private final CssDeclaration declaration;
-
-        public FutureDeclaration(@NotNull CssDeclaration declaration) {
-            this.declaration = declaration;
-            CssTermList termList = declaration.getValue();
-            value = termList == null ? "" : termList.getText();
-            name = declaration.getPropertyName();
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public CssDeclaration getDeclaration() {
-            return declaration;
+        for (CssDeclaration declaration : declarations) {
+            declaration.delete();
         }
     }
+
 }
