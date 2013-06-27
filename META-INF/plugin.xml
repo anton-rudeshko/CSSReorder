@@ -1,6 +1,6 @@
 <idea-plugin version="2">
   <id>com.rudeshko.csscomb</id>
-  <name>CSSComb</name>
+  <name>CSS reorder (beta version)</name>
   <version>0.2</version>
   <vendor email="anton@rudeshko.com" url="http://www.rudeshko.com">Anton Rudeshko</vendor>
 
@@ -8,8 +8,6 @@
       <strong>Very early version, use on your own risk. Stay tuned for updates.</strong>
       <br><br>
       The greatest tool for sorting CSS properties in specific order.
-      <br>
-      Credits to <a href="http://csscomb.com/">CSSComb.com</a>.
       <br><br>
       Feel free to contribute:
       <a href="https://github.com/anton-rudeshko/CSSComb">https://github.com/anton-rudeshko/CSSComb</a>
