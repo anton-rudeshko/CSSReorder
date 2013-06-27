@@ -28,8 +28,8 @@
   <depends>com.intellij.css</depends>
 
   <actions>
-    <action id="applyCSSComb" class="com.rudeshko.csscomb.CssCombAction" text="Apply CSSComb"
-            description="Clean up your CSS with CSSComb">
+    <action id="applyCSSComb" class="com.rudeshko.csscomb.CssCombAction" text="Apply CSSReorder"
+            description="Clean up your CSS with CSSReorder">
       <add-to-group group-id="ToolsMenu" anchor="last" />
       <keyboard-shortcut first-keystroke="alt C" keymap="$default" />
     </action>
