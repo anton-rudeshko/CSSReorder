@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.rudeshko.csscomb</id>
   <name>CSSReorder (beta)</name>
-  <version>0.2</version>
+  <version>0.3</version>
   <vendor email="anton@rudeshko.com" url="http://www.rudeshko.com">Anton Rudeshko</vendor>
 
   <description><![CDATA[
