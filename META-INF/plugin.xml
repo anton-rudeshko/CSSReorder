@@ -7,16 +7,18 @@
   <description><![CDATA[
       <strong>Very early version, use on your own risk. Stay tuned for updates.</strong>
       <br><br>
-      The greatest tool for sorting CSS properties in specific order.
+      A tool for sorting CSS properties in specific order.
       <br><br>
       Feel free to contribute:
-      <a href="https://github.com/anton-rudeshko/CSSComb">https://github.com/anton-rudeshko/CSSComb</a>
+      <a href="https://github.com/anton-rudeshko/CSSReorder">https://github.com/anton-rudeshko/CSSReorder</a>
       ]]></description>
 
   <change-notes><![CDATA[
+      27.06.2013 - Renaming to CSSReorder. Implementing default shortcut for apply CSSReorder (Alt+C).
+      <br>
       30.01.2013 - Changed reordering algorithm.
-      Closed <a href="https://github.com/anton-rudeshko/CSSComb/issues/3">#3</a> and
-      <a href="https://github.com/anton-rudeshko/CSSComb/issues/6">#6</a>.
+      Closed <a href="https://github.com/anton-rudeshko/CSSReorder/issues/3">#3</a> and
+      <a href="https://github.com/anton-rudeshko/CSSReorder/issues/6">#6</a>.
       <br>
       19.01.2013 - Initial version (alpha)
       ]]>
