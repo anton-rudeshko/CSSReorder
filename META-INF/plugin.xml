@@ -31,6 +31,7 @@
     <action id="applyCSSComb" class="com.rudeshko.csscomb.CssCombAction" text="Apply CSSComb"
             description="Clean up your CSS with CSSComb">
       <add-to-group group-id="ToolsMenu" anchor="last" />
+      <keyboard-shortcut first-keystroke="alt C" keymap="$default" />
     </action>
   </actions>
 </idea-plugin>
