@@ -10,7 +10,7 @@ public class CssCombAction extends AnAction {
     public void actionPerformed(AnActionEvent e) {
         PsiFile psiFile = getPsiFileFromActionEvent(e);
         if (psiFile != null) {
-            psiFile.acceptChildren(new CSSCombVisitor());
+            psiFile.accept(new CSSCombVisitor());
         }
     }
 
