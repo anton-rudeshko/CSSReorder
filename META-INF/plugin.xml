@@ -1,28 +1,46 @@
 <idea-plugin version="2">
   <id>com.rudeshko.csscomb</id>
   <name>CSSReorder (beta)</name>
-  <version>0.3</version>
+  <version>0.3.1</version>
   <vendor email="anton@rudeshko.com" url="http://www.rudeshko.com">Anton Rudeshko</vendor>
 
   <description><![CDATA[
       <strong>Very early version, use on your own risk. Stay tuned for updates.</strong>
       <br><br>
-      A tool for sorting CSS properties in specific order.
+      A tool for sorting CSS properties in specific order (for now using default order as defined on http://csscomb.ru/online/).
       <br><br>
       Feel free to contribute:
       <a href="https://github.com/anton-rudeshko/CSSReorder">https://github.com/anton-rudeshko/CSSReorder</a>
       ]]></description>
 
   <change-notes><![CDATA[
-      27.06.2013 - Renaming to CSSReorder. Implementing default shortcut for apply CSSReorder (Alt+C).
+  <ul>
+    <li>
+      <b>v0.3.1</b> (29.06.2013)
       <br>
-      30.01.2013 - Changed reordering algorithm.
+      Inaccurate default shortcut. Replaced with (Ctrl+Alt+R).
+      Closed <a href="https://github.com/anton-rudeshko/CSSReorder/issues/12">#12</a>.
+    </li>
+    <li>
+      <b>v0.3</b> (27.06.2013)
+      <br>
+      Renaming to CSSReorder. Implementing default shortcut for apply CSSReorder (Alt+C).
+      Closed <a href="https://github.com/anton-rudeshko/CSSReorder/issues/9">#9</a>
+    </li>
+    <li>
+      <b>v0.2</b> (30.01.2013)
+      <br>
+      Changed reordering algorithm.
       Closed <a href="https://github.com/anton-rudeshko/CSSReorder/issues/3">#3</a> and
       <a href="https://github.com/anton-rudeshko/CSSReorder/issues/6">#6</a>.
+    </li>
+    <li>
+      <b>v0.1</b> (19.01.2013)
       <br>
-      19.01.2013 - Initial version (alpha)
-      ]]>
-  </change-notes>
+      Initial version (alpha)
+    </li>
+  </ul>
+  ]]></change-notes>
 
   <idea-version since-build="107.105" />
 
@@ -33,7 +51,7 @@
     <action id="applyCSSComb" class="com.rudeshko.csscomb.CssCombAction" text="Apply CSSReorder"
             description="Clean up your CSS with CSSReorder">
       <add-to-group group-id="ToolsMenu" anchor="last" />
-      <keyboard-shortcut first-keystroke="alt C" keymap="$default" />
+      <keyboard-shortcut first-keystroke="control alt R" keymap="$default" />
     </action>
   </actions>
 </idea-plugin>
