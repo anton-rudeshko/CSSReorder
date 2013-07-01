@@ -14,32 +14,39 @@
       ]]></description>
 
   <change-notes><![CDATA[
-  <ul>
-    <li>
-      <b>v0.3.1</b> (29.06.2013)
-      <br>
-      Inaccurate default shortcut. Replaced with (Ctrl+Alt+R).
-      Closed <a href="https://github.com/anton-rudeshko/CSSReorder/issues/12">#12</a>.
-    </li>
-    <li>
-      <b>v0.3</b> (27.06.2013)
-      <br>
-      Renaming to CSSReorder. Implementing default shortcut for apply CSSReorder (Alt+C).
-      Closed <a href="https://github.com/anton-rudeshko/CSSReorder/issues/9">#9</a>
-    </li>
-    <li>
-      <b>v0.2</b> (30.01.2013)
-      <br>
-      Changed reordering algorithm.
-      Closed <a href="https://github.com/anton-rudeshko/CSSReorder/issues/3">#3</a> and
-      <a href="https://github.com/anton-rudeshko/CSSReorder/issues/6">#6</a>.
-    </li>
-    <li>
-      <b>v0.1</b> (19.01.2013)
-      <br>
-      Initial version (alpha)
-    </li>
-  </ul>
+<b>v0.3.1</b> (29.06.2013)
+<ul>
+  <li>
+    Inaccurate default shortcut. Replaced with (Ctrl+Alt+R).
+    Closed <a href="https://github.com/anton-rudeshko/CSSReorder/issues/12">#12</a>.
+  </li>
+</ul>
+
+<b>v0.3</b> (27.06.2013)
+<ul>
+  <li>
+    <b>Plugin renamed from CSSComb to CSSReorder.</b>
+    Read more at <a href="https://github.com/anton-rudeshko/CSSReorder/">README.md</a>.
+  </li>
+  <li>
+    Implementing default shortcut for apply CSSReorder (Alt+C).
+    Closed <a href="https://github.com/anton-rudeshko/CSSReorder/issues/9">#9</a>
+  </li>
+</ul>
+
+<b>v0.2</b> (30.01.2013)
+<ul>
+  <li>Changed reordering algorithm.</li>
+  <li>
+    Closed <a href="https://github.com/anton-rudeshko/CSSReorder/issues/3">#3</a> and
+    <a href="https://github.com/anton-rudeshko/CSSReorder/issues/6">#6</a>.
+  </li>
+</ul>
+
+<b>v0.1</b> (19.01.2013)
+<ul>
+  <li>Initial version (alpha).</li>
+</ul>
   ]]></change-notes>
 
   <idea-version since-build="107.105" />
