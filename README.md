@@ -12,6 +12,8 @@ This plugin is NOT supported by [CSSComb organization](https://github.com/csscom
 CSSComb author is not responsible for any bugs.
 It is only my initiative to implement original CSSComb features as native to IDEA platform.
 
+Based on [platform provided rearrangement](http://blogs.jetbrains.com/idea/2012/10/arrange-your-code-automatically-with-intellij-idea-12/).
+
 ## Installation
 Install from IntelliJ IDEA plugin repositories or download manually from http://plugins.jetbrains.com/plugin?pr=&pluginId=7164
 

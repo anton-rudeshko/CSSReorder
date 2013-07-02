@@ -16,7 +16,7 @@
   <change-notes><![CDATA[
 <b>v0.4.0</b> (02.07.2013)
 <ul>
-  <li>Completely rewritten to use <a href=""></a>platform provided rearrangement.</li>
+  <li>Completely rewritten to use <a href="http://blogs.jetbrains.com/idea/2012/10/arrange-your-code-automatically-with-intellij-idea-12/">platform provided rearrangement</a>.</li>
   <li>Now requires IntelliJ IDEA platform &ge; 12.</li>
   <li>
     Now should be invoked using Code&nbsp;→&nbsp;Rearrange action on CSS files.
