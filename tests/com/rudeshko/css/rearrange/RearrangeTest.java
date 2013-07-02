@@ -30,7 +30,7 @@ public class RearrangeTest extends LightCodeInsightFixtureTestCase {
 
     public void runCase(String simple) {
         myFixture.configureByFiles(simple + "/in.css");
-        myFixture.performEditorAction("applyCSSComb");
+        myFixture.performEditorAction("RearrangeCode");
         myFixture.checkResultByFile(simple + "/out.css");
     }
 

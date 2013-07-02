@@ -1,18 +1,14 @@
-package com.rudeshko.csscomb;
+package com.rudeshko.css.rearrange;
 
-import com.intellij.psi.css.CssDeclaration;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.Comparator;
 import java.util.List;
 
 import static java.util.Arrays.asList;
 
-/**
- * Created by: Tesla
- * Date: 19.01.13 at 23:00
- */
 public class CssOrder {
 
+    @NotNull
     public static final List<String> DEFAULT_ORDER = asList(
             "position",
             "top",
@@ -384,13 +380,4 @@ public class CssOrder {
             "user-zoom",
             "orientation"
     );
-
-    public static final Comparator<? super CssDeclaration> DEFAULT_COMPARATOR = new Comparator<CssDeclaration>() {
-        @Override
-        public int compare(CssDeclaration o1, CssDeclaration o2) {
-            int firstIndex = DEFAULT_ORDER.indexOf(o1.getPropertyName());
-            int secondIndex = DEFAULT_ORDER.indexOf(o2.getPropertyName());
-            return firstIndex == secondIndex ? 0 : firstIndex > secondIndex ? 1 : -1;
-        }
-    };
 }
