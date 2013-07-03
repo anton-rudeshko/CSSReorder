@@ -1,0 +1,11 @@
+/* YAML Framework CSS file */
+@import url(common/yaml.css);
+/* YAML Builder settings */
+@import url(quickstart/basemod.css);
+/* import vendor files */
+@import url(../vendor/jquery-ui/css/smoothness/jquery-ui-1.10.1.custom.css);
+@import url(../vendor/slimbox/css/slimbox2.css);
+
+.a {
+    display: none;
+}

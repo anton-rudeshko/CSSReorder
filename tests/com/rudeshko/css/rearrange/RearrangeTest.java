@@ -28,6 +28,10 @@ public class RearrangeTest extends LightCodeInsightFixtureTestCase {
         runCase("selection");
     }
 
+    public void testImports() throws Exception {
+        runCase("imports");
+    }
+
     public void runCase(String simple) {
         myFixture.configureByFiles(simple + "/in.css");
         myFixture.performEditorAction("RearrangeCode");
