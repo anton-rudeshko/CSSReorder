@@ -41,10 +41,16 @@ public class CssArrangementVisitor extends CssElementVisitor {
         }
     }
 
-    @Override
     public void visitCssMedia(CssMedia media) {
         for (CssRuleset ruleset : media.getRulesets()) {
             visitCssRuleset(ruleset);
+        }
+    }
+
+    @Override
+    public void visitAtRule(CssAtRule atRule) {
+        if (atRule instanceof CssMedia) {
+            visitCssMedia((CssMedia) atRule);
         }
     }
 
