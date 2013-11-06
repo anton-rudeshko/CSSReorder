@@ -7,7 +7,7 @@
     <option name="state" value="git@github.com:anton-rudeshko/CSSReorder.git" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="IDEA IU-132.839" project-jdk-type="IDEA JDK">
-    <output url="file://out" />
+    <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
 
