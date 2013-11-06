@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.rudeshko.csscomb</id>
   <name>CSSReorder (beta)</name>
-  <version>0.4.0</version>
+  <version>0.5.0</version>
   <vendor email="anton@rudeshko.com" url="http://www.rudeshko.com">Anton Rudeshko</vendor>
 
   <description><![CDATA[
@@ -14,6 +14,13 @@
       ]]></description>
 
   <change-notes><![CDATA[
+<b>v0.5.0</b> (06.11.2013)
+<ul>
+  <li>Upgrading to new platform API to support WebStorm 7, PHPStorm 7 and IDEA 13.</li>
+  <li>Now requires IntelliJ IDEA platform &ge; 13.</li>
+  <li>Consider also using node.js/npm version: <a href="https://github.com/csscomb/csscomb.js">csscomb.js</a></li>
+</ul>
+
 <b>v0.4.0</b> (02.07.2013)
 <ul>
   <li>Completely rewritten to use <a href="http://blogs.jetbrains.com/idea/2012/10/arrange-your-code-automatically-with-intellij-idea-12/">platform provided rearrangement</a>.</li>
@@ -69,12 +76,13 @@
 </ul>
   ]]></change-notes>
 
+  <!-- see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges -->
   <idea-version since-build="131" />
 
   <depends>com.intellij.modules.lang</depends>
   <depends>com.intellij.css</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <lang.rearranger language="CSS" implementationClass="com.rudeshko.css.rearrange.CssRearranger"/>
+    <lang.rearranger language="CSS" implementationClass="com.rudeshko.css.rearrange.CssRearranger" />
   </extensions>
 </idea-plugin>
