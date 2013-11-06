@@ -3,9 +3,10 @@
 **Very early version, use on your own risk. Stay tuned for updates.**
 
 Sorting CSS properties in predefined order.
+Consider also using node.js/npm version: <a href="https://github.com/csscomb/csscomb.js">csscomb.js</a>
 
 ## Disclaimer
-Requires IntelliJ platform version &ge; 12.
+Requires IntelliJ platform version &ge; 13.
 
 Formerly known as CSSComb but was renamed to avoid people confusion.
 This plugin is NOT supported by [CSSComb organization](https://github.com/csscomb) and have no shared codebase.
