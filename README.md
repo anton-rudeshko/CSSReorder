@@ -25,7 +25,3 @@ This action also can be invoked on code reformatting action by checking correspo
 
 ## Contribution
 Feel free to report bugs, request features and contribute.
-
-## Licence
-
-MIT
