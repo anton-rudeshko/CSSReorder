@@ -7,24 +7,23 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.psi.codeStyle.arrangement.ArrangementSettings;
 import com.intellij.psi.codeStyle.arrangement.Rearranger;
-import com.intellij.psi.codeStyle.arrangement.StdArrangementSettings;
-import com.intellij.psi.codeStyle.arrangement.group.ArrangementGroupingRule;
-import com.intellij.psi.codeStyle.arrangement.group.ArrangementGroupingType;
-import com.intellij.psi.codeStyle.arrangement.match.ArrangementEntryType;
-import com.intellij.psi.codeStyle.arrangement.match.ArrangementModifier;
+import com.intellij.psi.codeStyle.arrangement.match.ArrangementEntryMatcher;
 import com.intellij.psi.codeStyle.arrangement.match.StdArrangementEntryMatcher;
 import com.intellij.psi.codeStyle.arrangement.match.StdArrangementMatchRule;
 import com.intellij.psi.codeStyle.arrangement.model.ArrangementAtomMatchCondition;
 import com.intellij.psi.codeStyle.arrangement.model.ArrangementMatchCondition;
-import com.intellij.psi.codeStyle.arrangement.model.ArrangementSettingType;
-import com.intellij.psi.codeStyle.arrangement.order.ArrangementEntryOrderType;
-import com.intellij.psi.codeStyle.arrangement.settings.ArrangementStandardSettingsAware;
+import com.intellij.psi.codeStyle.arrangement.std.*;
+import com.intellij.util.containers.ContainerUtilRt;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
 public class CssRearranger implements Rearranger<CssElementArrangementEntry>, ArrangementStandardSettingsAware {
+    /**
+     * Describing and filling out default order rules.
+     * It will be used in default settings and then settings used to rearrange properties.
+     */
     private static final List<StdArrangementMatchRule> DEFAULT_MATCH_RULES = new ArrayList<StdArrangementMatchRule>();
 
     static {
@@ -34,13 +33,13 @@ public class CssRearranger implements Rearranger<CssElementArrangementEntry>, Ar
     }
 
     private static void addRule(String propertyName) {
-        ArrangementAtomMatchCondition condition = new ArrangementAtomMatchCondition(ArrangementSettingType.NAME, propertyName);
+        ArrangementAtomMatchCondition condition = new ArrangementAtomMatchCondition(StdArrangementTokens.Regexp.NAME, propertyName);
         StdArrangementEntryMatcher matcher = new StdArrangementEntryMatcher(condition);
-        DEFAULT_MATCH_RULES.add(new StdArrangementMatchRule(matcher));
+        DEFAULT_MATCH_RULES.add(new StdArrangementMatchRule(matcher, StdArrangementTokens.Order.BY_NAME));
     }
 
-    private static final StdArrangementSettings DEFAULT_SETTINGS = new StdArrangementSettings(Collections.<ArrangementGroupingRule>emptyList(), DEFAULT_MATCH_RULES);
-    private static final Set<ArrangementEntryType> SUPPORTED_TYPES = EnumSet.of(ArrangementEntryType.PROPERTY);
+    private static final StdArrangementSettings DEFAULT_SETTINGS = new StdArrangementSettings(DEFAULT_MATCH_RULES);
+    private static final Set<ArrangementSettingsToken> SUPPORTED_TYPES = ContainerUtilRt.newLinkedHashSet(StdArrangementTokens.EntryType.PROPERTY);
 
     @Nullable
     @Override
@@ -71,29 +70,32 @@ public class CssRearranger implements Rearranger<CssElementArrangementEntry>, Ar
         return DEFAULT_SETTINGS;
     }
 
+    @Nullable
     @Override
-    public boolean isNameFilterSupported() {
-        return true;
+    public List<CompositeArrangementSettingsToken> getSupportedGroupingTokens() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public List<CompositeArrangementSettingsToken> getSupportedMatchingTokens() {
+        return null;
     }
 
     @Override
-    public boolean isEnabled(@NotNull ArrangementEntryType type, @Nullable ArrangementMatchCondition current) {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled(@NotNull ArrangementModifier modifier, @Nullable ArrangementMatchCondition current) {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled(@NotNull ArrangementGroupingType groupingType, @Nullable ArrangementEntryOrderType orderType) {
-        return false;
+    public boolean isEnabled(@NotNull ArrangementSettingsToken token, @Nullable ArrangementMatchCondition current) {
+        return SUPPORTED_TYPES.contains(token);
     }
 
     @NotNull
     @Override
-    public Collection<Set<?>> getMutexes() {
-        return Collections.<Set<?>>singleton(SUPPORTED_TYPES);
+    public Collection<Set<ArrangementSettingsToken>> getMutexes() {
+        return Collections.singleton(SUPPORTED_TYPES);
+    }
+
+    @NotNull
+    @Override
+    public ArrangementEntryMatcher buildMatcher(@NotNull ArrangementMatchCondition condition) throws IllegalArgumentException {
+        throw new IllegalArgumentException("Can't build a matcher for condition " + condition);
     }
 }

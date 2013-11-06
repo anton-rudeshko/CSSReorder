@@ -69,7 +69,7 @@
 </ul>
   ]]></change-notes>
 
-  <idea-version since-build="123.72" />
+  <idea-version since-build="131" />
 
   <depends>com.intellij.modules.lang</depends>
   <depends>com.intellij.css</depends>
