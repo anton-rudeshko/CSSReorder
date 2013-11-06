@@ -77,7 +77,7 @@
   ]]></change-notes>
 
   <!-- see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges -->
-  <idea-version since-build="131" />
+  <idea-version since-build="130.25" />
 
   <depends>com.intellij.modules.lang</depends>
   <depends>com.intellij.css</depends>
