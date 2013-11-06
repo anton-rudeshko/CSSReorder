@@ -77,7 +77,7 @@ public class CssArrangementVisitor extends CssElementVisitor {
         }
 
         CssElementArrangementEntry current = getCurrent();
-        CssElementArrangementEntry entry = new CssElementArrangementEntry(current, range, propertyName, true);
+        CssElementArrangementEntry entry = new CssElementArrangementEntry(current, range, propertyName);
         if (current == null) {
             myInfo.addEntry(entry);
         } else {

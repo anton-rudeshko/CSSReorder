@@ -10,8 +10,8 @@ public class CssElementArrangementEntry extends DefaultArrangementEntry implemen
     @Nullable
     private String name;
 
-    public CssElementArrangementEntry(@Nullable CssElementArrangementEntry parent, @NotNull TextRange range, @Nullable String name, boolean canBeMatched) {
-        super(parent, range.getStartOffset(), range.getEndOffset(), canBeMatched);
+    public CssElementArrangementEntry(@Nullable CssElementArrangementEntry parent, @NotNull TextRange range, @Nullable String name) {
+        super(parent, range.getStartOffset(), range.getEndOffset(), true);
         this.name = name;
     }
 
@@ -25,7 +25,7 @@ public class CssElementArrangementEntry extends DefaultArrangementEntry implemen
     public String toString() {
         return "CssElementArrangementEntry{" +
                 "name='" + name + '\'' +
-                "children.size='" + getChildren().size() + '\'' +
+                ", children.size='" + getChildren().size() + '\'' +
                 '}';
     }
 }
