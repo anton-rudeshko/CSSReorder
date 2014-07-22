@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.rudeshko.csscomb</id>
   <name>CSSReorder (beta)</name>
-  <version>0.5.0</version>
+  <version>0.5.1</version>
   <vendor email="anton@rudeshko.com" url="http://www.rudeshko.com">Anton Rudeshko</vendor>
 
   <description><![CDATA[
@@ -14,6 +14,11 @@
   ]]></description>
 
   <change-notes><![CDATA[
+<b>v0.5.1</b> (24.07.2014)
+<ul>
+  <li>Upgrading to new platform API to support WebStorm 8, PHPStorm 8 and IDEA 14.</li>
+</ul>
+
 <b>v0.5.0</b> (06.11.2013)
 <ul>
   <li>Upgrading to new platform API to support WebStorm 7, PHPStorm 7 and IDEA 13.</li>
@@ -77,7 +82,7 @@
   ]]></change-notes>
 
   <!-- see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges -->
-  <idea-version since-build="130.25" />
+  <idea-version since-build="138.0" />
 
   <depends>com.intellij.modules.lang</depends>
   <depends>com.intellij.css</depends>

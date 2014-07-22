@@ -6,8 +6,11 @@ import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.psi.codeStyle.arrangement.ArrangementSettings;
+import com.intellij.psi.codeStyle.arrangement.ArrangementSettingsSerializer;
+import com.intellij.psi.codeStyle.arrangement.DefaultArrangementSettingsSerializer;
 import com.intellij.psi.codeStyle.arrangement.Rearranger;
 import com.intellij.psi.codeStyle.arrangement.match.ArrangementEntryMatcher;
+import com.intellij.psi.codeStyle.arrangement.match.ArrangementSectionRule;
 import com.intellij.psi.codeStyle.arrangement.match.StdArrangementEntryMatcher;
 import com.intellij.psi.codeStyle.arrangement.match.StdArrangementMatchRule;
 import com.intellij.psi.codeStyle.arrangement.model.ArrangementAtomMatchCondition;
@@ -24,7 +27,7 @@ public class CssRearranger implements Rearranger<CssElementArrangementEntry>, Ar
      * Describing and filling out default order rules.
      * It will be used in default settings and then settings used to rearrange properties.
      */
-    private static final List<StdArrangementMatchRule> DEFAULT_MATCH_RULES = new ArrayList<StdArrangementMatchRule>();
+    private static final List<ArrangementSectionRule> DEFAULT_MATCH_RULES = new ArrayList<ArrangementSectionRule>();
 
     static {
         for (String propertyName : CssOrder.DEFAULT_ORDER) {
@@ -35,10 +38,12 @@ public class CssRearranger implements Rearranger<CssElementArrangementEntry>, Ar
     private static void addRule(String propertyName) {
         ArrangementAtomMatchCondition condition = new ArrangementAtomMatchCondition(StdArrangementTokens.Regexp.NAME, propertyName);
         StdArrangementEntryMatcher matcher = new StdArrangementEntryMatcher(condition);
-        DEFAULT_MATCH_RULES.add(new StdArrangementMatchRule(matcher, StdArrangementTokens.Order.BY_NAME));
+        StdArrangementMatchRule matchRule = new StdArrangementMatchRule(matcher, StdArrangementTokens.Order.BY_NAME);
+        DEFAULT_MATCH_RULES.add(ArrangementSectionRule.create(matchRule));
     }
 
     private static final StdArrangementSettings DEFAULT_SETTINGS = new StdArrangementSettings(DEFAULT_MATCH_RULES);
+    private static final DefaultArrangementSettingsSerializer SETTINGS_SERIALIZER = new DefaultArrangementSettingsSerializer(DEFAULT_SETTINGS);
     private static final Set<ArrangementSettingsToken> SUPPORTED_TYPES = ContainerUtilRt.newLinkedHashSet(StdArrangementTokens.EntryType.PROPERTY);
 
     @Nullable
@@ -62,6 +67,12 @@ public class CssRearranger implements Rearranger<CssElementArrangementEntry>, Ar
     @Override
     public int getBlankLines(@NotNull CodeStyleSettings settings, @Nullable CssElementArrangementEntry parent, @Nullable CssElementArrangementEntry previous, @NotNull CssElementArrangementEntry target) {
         return -1;
+    }
+
+    @NotNull
+    @Override
+    public ArrangementSettingsSerializer getSerializer() {
+        return SETTINGS_SERIALIZER;
     }
 
     @Nullable
