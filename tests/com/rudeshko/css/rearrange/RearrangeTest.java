@@ -37,10 +37,10 @@ public class RearrangeTest extends LightPlatformCodeInsightFixtureTestCase {
         runCase("imports");
     }
 
-    public void runCase(String simple) {
-        myFixture.configureByFiles(simple + "/in.css");
+    public void runCase(String testDir) {
+        myFixture.configureByFiles(testDir + "/in.css");
         myFixture.performEditorAction("RearrangeCode");
-        myFixture.checkResultByFile(simple + "/out.css");
+        myFixture.checkResultByFile(testDir + "/out.css");
     }
 
 }
