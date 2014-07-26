@@ -8,9 +8,9 @@
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="package" />
-    <option name="VM_PARAMETERS" value="-ea -Xbootclasspath/p:../out/classes/production/boot -XX:+HeapDumpOnOutOfMemoryError -Xmx512m -XX:MaxPermSize=320m -Didea.system.path=../test-system -Didea.home.path=../ -Didea.config.path=../test-config -Didea.test.group=ALL_EXCLUDE_DEFINED" />
+    <option name="VM_PARAMETERS" value="-ea -Xbootclasspath/p:../out/classes/production/boot -XX:+HeapDumpOnOutOfMemoryError -Xmx512m -XX:MaxPermSize=320m -Didea.home.path=$USER_HOME$/Library/Caches/IntelliJIdea13/plugins-sandbox -Didea.system.path=$USER_HOME$/Library/Caches/IntelliJIdea13/plugins-sandbox/system -Didea.config.path=$USER_HOME$/Library/Caches/IntelliJIdea13/plugins-sandbox/config -Didea.test.group=ALL_EXCLUDE_DEFINED" />
     <option name="PARAMETERS" value="" />
-    <option name="WORKING_DIRECTORY" value="file://$APPLICATION_HOME_DIR$/bin" />
+    <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../idea-138.1029/IntelliJ IDEA 14 EAP.app/Contents/bin" />
     <option name="ENV_VARIABLES" />
     <option name="PASS_PARENT_ENVS" value="true" />
     <option name="TEST_SEARCH_SCOPE">
