@@ -21,7 +21,7 @@ Install from IntelliJ IDEA plugin repositories or download manually [here](http:
 ## Usage
 Should be invoked using *Code&nbsp;→&nbsp;Rearrange* action on CSS files.
 This action also can be invoked on code reformatting action by checking corresponding option (Rearrange entries) in
-[Reformat code dialog](http://www.jetbrains.com/idea/webhelp/reformat-code-dialog.html).
+[Reformat code dialog](https://www.jetbrains.com/help/idea/2016.1/reformat-file-dialog.html).
 
 ## Contribution
 Feel free to report bugs, request features and contribute.
